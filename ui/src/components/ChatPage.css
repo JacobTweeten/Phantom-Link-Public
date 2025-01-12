@@ -1,0 +1,23 @@
+
+.user-message {
+  background-color: #e56f00;
+  align-self: flex-end;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
+  max-width: 80%;
+}
+
+.ghost-message {
+  background-color: #f0f0f0;
+  align-self: flex-start;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
+  max-width: 80%;
+}
+
+.ant-list-item {
+  display: flex;
+  justify-content: flex-start;
+}

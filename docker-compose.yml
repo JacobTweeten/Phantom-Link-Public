@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: phantom-link-ui
+    build:
+      context: ./ui
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ui:/app  # Sync local files with `/app` in the container
+      - /app/node_modules  # Avoids conflicts with local `node_modules`
+    command: npm start
+    working_dir: /app
+    environment:
+      - CHOKIDAR_USEPOLLING=true  
+    depends_on:
+      - backend
+
+  backend:
+    container_name: phantom-link-backend
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app  
+    environment:
+      - FLASK_ENV=development  
+      - FLASK_APP=server.py  
+      - OPENAI_API_KEY=
+      - FLASK_SECRET_KEY=
+      - SQLALCHEMY_DATABASE_URI=postgresql://phantom_user:secret_password@db:5432/phantomdb
+
+    command: flask run --host=0.0.0.0  # Run Flask app
+    depends_on:
+      - db
+
+
+  db:
+    container_name: phantom-link-db
+    build:
+      context: ./db  # Dockerfile in `./db` uses `FROM postgres:13` + init.sql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=phantomdb
+      - POSTGRES_USER=
+      - POSTGRES_PASSWORD=
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    expose:
+      - 5432
+
+      
+
+volumes:
+  postgres-data:
