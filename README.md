@@ -2,6 +2,11 @@
 
 Phantom-Link is a location-based web application that blends history and technology, enabling users to interact with "ghosts" of historical figures from their area. By leveraging AI and historical data, the application generates engaging, era-appropriate conversations that provide a unique educational and storytelling experience.
 
+The project is live and available for exploration at phantom-link.com. 
+
+[Phantom-Link](https://phantom-link.com)
+
+
 ## Project Overview
 
 - **Developer**: Jacob Tweeten
