@@ -27,7 +27,7 @@ The project is live and available for exploration at phantom-link.com.
 - **Secure User Accounts**: Includes email verification and a custom database for storing user profiles and interactions.
 - **Educational and Entertaining**: Encourages exploration of local history through immersive storytelling.
 
-## Roadmap
+## Future Roadmap
 
 - **January - March 2025**: Finalize functionality and optimize AI interactions.
 - **April 2025**: Conduct usability testing and refine the user experience.
